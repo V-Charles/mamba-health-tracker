@@ -3,24 +3,36 @@ import { RouterView, RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <header class="header">
-    <div class="container header-content">
-      <h1>Mamba Health</h1>
-      <nav>
-        <!-- Estes links controlarão as abas da nossa SPA -->
-        <RouterLink to="/" class="nav-link">Início</RouterLink>
-        <RouterLink to="/dashboard" class="nav-link">Dashboard</RouterLink>
-      </nav>
-    </div>
-  </header>
+  <div class="app-wrapper">
+    <header class="header">
+      <div class="container header-content">
+        <h1>Mamba Health</h1>
+        <nav>
+          <RouterLink to="/" class="nav-link">Início</RouterLink>
+          <RouterLink to="/dashboard" class="nav-link">Dashboard</RouterLink>
+        </nav>
+      </div>
+    </header>
 
-  <main class="container main-content">
-    <!-- O RouterView é onde o Vue injeta as páginas dependendo da URL -->
-    <RouterView />
-  </main>
+    <main class="container main-content">
+      <RouterView />
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>Mamba Health Tracker &copy; {{ new Date().getFullYear() }} - Desenvolvido por Vinicius Charles M. Dias.</p>
+      </div>
+    </footer>
+  </div>
 </template>
 
 <style scoped>
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .header {
   background-color: var(--surface-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -57,6 +69,17 @@ nav {
 }
 
 .main-content {
-  min-height: 80vh;
+  flex: 1;
+  width: 100%;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  background-color: var(--surface-color);
+  color: var(--text-light);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border-color);
 }
 </style>
