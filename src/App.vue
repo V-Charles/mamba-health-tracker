@@ -7,12 +7,15 @@ import { RouterView, RouterLink } from 'vue-router'
     <div class="container header-content">
       <h1>Mamba Health</h1>
       <nav>
+        <!-- Estes links controlarão as abas da nossa SPA -->
         <RouterLink to="/" class="nav-link">Início</RouterLink>
+        <RouterLink to="/dashboard" class="nav-link">Dashboard</RouterLink>
       </nav>
     </div>
   </header>
 
   <main class="container main-content">
+    <!-- O RouterView é onde o Vue injeta as páginas dependendo da URL -->
     <RouterView />
   </main>
 </template>
